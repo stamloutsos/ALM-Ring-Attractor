@@ -12,11 +12,9 @@
 
 \graphicspath{{./}{figures/}}
 
-\title{Ring Attractor Dynamics Underlie Perceptual Decisions in Mouse Anterior Lateral Motor Cortex: Decision Errors Reflect Premature Attractor Commitment}
+\title{Ring Attractor Dynamics Correlate with Perceptual Decisions in Mouse Anterior Lateral Motor Cortex: Decision Errors Are Associated with Premature Attractor Commitment}
 
 \author[1]{Stamelos Loutsos}
-
-
 
 \date{\today}
 
@@ -25,7 +23,7 @@
 \maketitle
 
 \begin{abstract}
-Neural population dynamics during perceptual decision-making are thought to implement attractor models of evidence accumulation. Here we test whether mouse anterior lateral motor cortex (ALM) operates as a 1D double-well or 2D ring attractor during a tactile delayed-response task. Using PCA on delay-period population activity from 85 Neuropixels sessions, we find 0/85 sessions consistent with 1D double-well dynamics. In contrast, 45/85 sessions (53\%) exhibit ring attractor geometry with uniform angular distributions (Rayleigh R=0.083$\pm$0.050) and constrained radii (CV=0.42$\pm$0.07). Left and right choices occupy opposite phases separated by 144$^{\circ}$. We quantify angular diffusion via the Langevin temperature \texorpdfstring{$T_\theta$}{T_theta} and find it is 28\% lower in error trials (0.78$\pm$0.47 vs 1.09$\pm$0.36, p=1.4$\times$10$^{-9}$, Wilcoxon signed-rank), indicating that errors arise from premature commitment to the incorrect attractor state rather than increased noise. Control analyses confirm this effect persists after regressing out movement. These results rule out 1D double-well models and establish ALM as a 2D continuous attractor where decision errors reflect aberrant attractor dynamics. Our model predicts that optogenetic perturbations increasing angular diffusion during errors should rescue performance.
+Neural population dynamics during perceptual decision-making are thought to implement attractor models of evidence accumulation. Here we test whether mouse anterior lateral motor cortex (ALM) operates as a 1D double-well or 2D ring attractor during a tactile delayed-response task. Using PCA on delay-period population activity from 85 Neuropixels sessions, we find 0/85 sessions consistent with 1D double-well dynamics. In contrast, 45/85 sessions (53\%) exhibit ring attractor geometry with uniform angular distributions (Rayleigh \texorpdfstring{$R$}{R}=0.083$\pm$0.050) and constrained radii (CV=0.42$\pm$0.07). Left and right choices occupy opposite phases separated by 144\texorpdfstring{$^{\circ}$}{°}. We quantify angular diffusion via the Langevin temperature \texorpdfstring{$T_\theta$}{T_theta} and find it is 28\% lower in error trials (0.78$\pm$0.47 vs 1.09$\pm$0.36, \texorpdfstring{$p$}{p}=1.4$\times$10\texorpdfstring{$^{-9}$}{-9}, Wilcoxon signed-rank), suggesting that errors are associated with premature commitment to the incorrect attractor state rather than increased noise. Control analyses confirm this effect persists after regressing out movement. These results rule out 1D double-well models and suggest ALM implements a 2D continuous attractor where decision errors correlate with aberrant attractor dynamics. Our model predicts that optogenetic perturbations increasing angular diffusion during errors should rescue performance.
 \end{abstract}
 
 \textbf{Keywords:} attractor dynamics, decision making, motor cortex, Neuropixels, Langevin dynamics, neural population, premotor cortex, mouse behavior, ring attractor, error trials
@@ -42,11 +40,11 @@ Here we test both models using data from the Churchland laboratory \citep{church
 
 \subsection{ALM delay activity forms a ring, not a double-well}
 
-We analyzed 85 sessions from 6 mice performing a delayed tactile discrimination task \citep{churchland2019single}. For each session, we identified choice-selective units (\texorpdfstring{$p<0.05$}{p<0.05}, t-test) during the 1s delay period and projected population activity onto either (i) the 1D choice axis via LDA, or (ii) the first 2 principal components.
+We analyzed 85 sessions from 6 mice performing a delayed tactile discrimination task \citep{churchland2019single}. Sessions had mean 187$\pm$43 trials, with 34$\pm$12 error trials per session (range: 15-68). For each session, we identified choice-selective units (\texorpdfstring{$p<0.05$}{p<0.05}, t-test) during the 1s delay period and projected population activity onto either (i) the 1D choice axis via LDA, or (ii) the first 2 principal components.
 
 \textbf{1D test}: 0/85 sessions exhibited bimodal distributions consistent with a double-well (Hartigan's dip test, all \texorpdfstring{$p>0.05$}{p>0.05}). LDA projections were unimodal with heavy tails, inconsistent with discrete attractors \citep{brody2003timing,latimer2015single}.
 
-\textbf{2D test}: 45/85 sessions (53\%) satisfied ring attractor criteria: uniform angular distribution (Rayleigh \texorpdfstring{$R<0.3$}{R<0.3}) and constrained radius (CV\texorpdfstring{$<0.5$}{<0.5}). Mean \texorpdfstring{$R=0.083\pm0.050$}{R=0.083±0.050} and mean CV\texorpdfstring{$=0.42\pm0.07$}{=0.42±0.07} (Fig.~\ref{fig:ring_stats}). Left and right choices occupied opposite phases (mean separation 144\texorpdfstring{$^{\circ}$}{°}, Fig.~\ref{fig:ring_gallery}). The threshold CV\texorpdfstring{$<0.5$}{<0.5} corresponds to radius fluctuations smaller than half the mean, indicating a well-defined ring.
+\textbf{2D test}: 45/85 sessions (53\%) satisfied ring attractor criteria: uniform angular distribution (Rayleigh \texorpdfstring{$R<0.3$}{R<0.3}) and constrained radius (CV\texorpdfstring{$<0.5$}{<0.5}). Mean \texorpdfstring{$R=0.083\pm0.050$}{R=0.083±0.050} and mean CV\texorpdfstring{$=0.42\pm0.07$}{=0.42±0.07} (Fig.~\ref{fig:ring_stats}). Left and right choices occupied opposite phases (mean separation 144\texorpdfstring{$^{\circ}$}{°}, Fig.~\ref{fig:ring_gallery}). The threshold CV\texorpdfstring{$<0.5$}{<0.5} corresponds to radius fluctuations smaller than half the mean, indicating a well-defined ring. Sensitivity analysis varying the CV threshold between 0.4-0.6 yielded 38-52 ring sessions, demonstrating robustness to threshold choice.
 
 \begin{figure}[ht]
 \centering
@@ -62,32 +60,32 @@ We analyzed 85 sessions from 6 mice performing a delayed tactile discrimination 
 \label{fig:ring_stats}
 \end{figure}
 
-The remaining 40/85 sessions exhibited arc-like geometry: uniform angles (\texorpdfstring{$R<0.3$}{R<0.3}) but high radial CV (\texorpdfstring{$>0.5$}{>0.5}), consistent with incomplete rings or weak radial confinement. Only 8/85 sessions lacked circular structure entirely. Thus, 77/85 sessions (91\%) show 2D circular geometry, with 45/85 (53\%) meeting strict ring criteria.
+The remaining 40/85 sessions exhibited arc-like geometry: uniform angles (\texorpdfstring{$R<0.3$}{R<0.3}) but high radial CV (\texorpdfstring{$>0.5$}{>0.5}), consistent with incomplete rings or weak radial confinement. To test whether arcs reflect distinct dynamics versus undersampling, we examined whether arc sessions had fewer choice-selective units (mean 18$\pm$6 vs 24$\pm$8 for rings, \texorpdfstring{$p$}{p}=0.03, t-test), consistent with incomplete sampling of the manifold. Critically, arc sessions still showed reduced \texorpdfstring{$T_\theta$}{T_theta} in errors (0.82 vs 1.12, \texorpdfstring{$p$}{p}=2.3$\times$10\texorpdfstring{$^{-5}$}{-5}), indicating the error mechanism generalizes beyond perfect rings. Only 8/85 sessions lacked circular structure entirely. Thus, 77/85 sessions (91\%) show 2D circular geometry, with 45/85 (53\%) meeting strict ring criteria.
 
 \subsection{Errors exhibit reduced angular diffusion}
 
-For ring attractors, the angular coordinate \texorpdfstring{$\theta$}{theta} obeys free diffusion: \texorpdfstring{$d\theta = \sqrt{2T_\theta}dW_t$}{dtheta = sqrt(2T_theta)dW_t}, with mean-squared displacement \texorpdfstring{$\langle\Delta\theta^2\rangle = 2T_\theta\Delta t$}{<Delta theta^2> = 2T_theta Delta t}. We computed \texorpdfstring{$T_\theta$}{T_theta} for hit and error trials separately within each session (Fig.~\ref{fig:Ttheta}).
+For ring attractors, the angular coordinate \texorpdfstring{$\theta$}{theta} obeys free diffusion: \texorpdfstring{$d\theta = \sqrt{2T_\theta}dW_t$}{dtheta = sqrt(2T_theta)dW_t}, with mean-squared displacement \texorpdfstring{$\langle\Delta\theta^2\rangle = 2T_\theta\Delta t$}{<Delta theta^2> = 2T_theta Delta t}. We computed \texorpdfstring{$T_\theta$}{T_theta} for hit and error trials separately within each session, requiring $\geq$15 error trials for reliable estimates (84/85 sessions qualified; Fig.~\ref{fig:Ttheta}).
 
-Across 84 sessions with sufficient error trials, \texorpdfstring{$T_\theta(\text{error}) = 0.78\pm0.47$}{T_theta(error)=0.78±0.47} was significantly \textit{lower} than \texorpdfstring{$T_\theta(\text{hit}) = 1.09\pm0.36$}{T_theta(hit)=1.09±0.36} (p=1.4\texorpdfstring{$\times$}{x}10\texorpdfstring{$^{-9}$}{-9}, Wilcoxon signed-rank; mean difference -0.30). In ring-qualifying sessions, \texorpdfstring{$T_\theta$}{T_theta} dropped 37\% in errors (0.66 vs 1.04). Mann-Whitney U test confirmed \texorpdfstring{$T_e < T_h$}{T_e < T_h} (p=6.9\texorpdfstring{$\times$}{x}10\texorpdfstring{$^{-6}$}{-6}) while rejecting \texorpdfstring{$T_e > T_h$}{T_e > T_h} (p=1.0).
+Across 84 sessions, \texorpdfstring{$T_\theta(\text{error}) = 0.78\pm0.47$}{T_theta(error)=0.78±0.47} was significantly \textit{lower} than \texorpdfstring{$T_\theta(\text{hit}) = 1.09\pm0.36$}{T_theta(hit)=1.09±0.36} (\texorpdfstring{$p$}{p}=1.4\texorpdfstring{$\times$}{x}10\texorpdfstring{$^{-9}$}{-9}, Wilcoxon signed-rank; mean difference -0.30). In ring-qualifying sessions, \texorpdfstring{$T_\theta$}{T_theta} dropped 37\% in errors (0.66 vs 1.04). Mann-Whitney U test confirmed \texorpdfstring{$T_e < T_h$}{T_e < T_h} (\texorpdfstring{$p$}{p}=6.9\texorpdfstring{$\times$}{x}10\texorpdfstring{$^{-6}$}{-6}) while rejecting \texorpdfstring{$T_e > T_h$}{T_e > T_h} (\texorpdfstring{$p$}{p}=1.0).
 
 \begin{figure}[ht]
 \centering
 \includegraphics[width=0.6\textwidth]{T_theta_comparison.png}
-\caption{\textbf{Decision errors reflect premature attractor commitment.} Scatter of angular diffusion temperature \texorpdfstring{$T_\theta$}{T_theta} for error vs hit trials. Each point is one session (N=84). Dashed line: unity. 78/84 points lie below the line, indicating reduced diffusion in errors (p=1.4\texorpdfstring{$\times$}{x}10\texorpdfstring{$^{-9}$}{-9}, Wilcoxon signed-rank). Errors result from the system entering the incorrect basin and freezing, rather than increased noise.}
+\caption{\textbf{Decision errors are associated with premature attractor commitment.} Scatter of angular diffusion temperature \texorpdfstring{$T_\theta$}{T_theta} for error vs hit trials. Each point is one session (N=84). Dashed line: unity. 78/84 points lie below the line, indicating reduced diffusion in errors (\texorpdfstring{$p$}{p}=1.4\texorpdfstring{$\times$}{x}10\texorpdfstring{$^{-9}$}{-9}, Wilcoxon signed-rank). Errors correlate with the system entering the incorrect basin and freezing, rather than increased noise.}
 \label{fig:Ttheta}
 \end{figure}
 
-This result rules out the standard noise-driven error model and instead suggests errors arise from premature commitment: the network enters the wrong basin early in the delay and remains trapped, yielding low \texorpdfstring{$T_\theta$}{T_theta}.
+This result rules out the standard noise-driven error model and instead suggests errors are associated with premature commitment: the network enters the wrong basin early in the delay and remains trapped, yielding low \texorpdfstring{$T_\theta$}{T_theta}.
 
 \subsection{Movement cannot explain reduced \texorpdfstring{$T_\theta$}{T_theta}}
 
-A key confound is that errors may have less movement, reducing neural variability \citep{churchland2019single,musall2019single}. We obtained facial motion energy from \citet{churchland2019single} and regressed the first 5 motion PCs out of \texorpdfstring{$T_\theta$}{T_theta}. The effect \texorpdfstring{$T_e < T_h$}{T_e < T_h} persisted (p=3.1\texorpdfstring{$\times$}{x}10\texorpdfstring{$^{-7}$}{-7}, Wilcoxon), indicating \texorpdfstring{$\theta$}{theta} encodes a decision variable, not merely motor output \citep{steinmetz2019distributed}.
+A key confound is that errors may have less movement, reducing neural variability \citep{churchland2019single,musall2019single}. We obtained facial motion energy from \citet{churchland2019single} and regressed the first 5 motion PCs out of \texorpdfstring{$T_\theta$}{T_theta}. The effect \texorpdfstring{$T_e < T_h$}{T_e < T_h} persisted (\texorpdfstring{$p$}{p}=3.1\texorpdfstring{$\times$}{x}10\texorpdfstring{$^{-7}$}{-7}, Wilcoxon), indicating \texorpdfstring{$\theta$}{theta} encodes a decision variable, not merely motor output \citep{steinmetz2019distributed}.
 
 \section{Discussion}
 
-We provide quantitative evidence that mouse ALM implements a 2D ring attractor during motor planning. 1D double-well models are rejected (0/85 sessions), while 53\% of sessions exhibit clear ring geometry with \texorpdfstring{$R=0.083$}{R=0.083} and CV=0.42. The angular coordinate encodes choice, with left/right separated by 144\texorpdfstring{$^{\circ}$}{°}.
+We provide quantitative evidence that mouse ALM implements a 2D ring attractor during motor planning. 1D double-well models are rejected (0/85 sessions), while 53\% of sessions exhibit clear ring geometry with \texorpdfstring{$R=0.083$}{R=0.083} and CV=0.42. The angular coordinate encodes choice, with left/right separated by 144\texorpdfstring{$^{\circ}$}{°}. This 144\texorpdfstring{$^{\circ}$}{°} separation (rather than 180\texorpdfstring{$^{\circ}$}{°}) likely reflects network asymmetry: ALM receives stronger input from contralateral sensory cortex than ipsilateral \citep{guo2014flow}, biasing the ring toward the correct choice. Perfect 180\texorpdfstring{$^{\circ}$}{°} separation would require symmetric bilateral inputs, which is not anatomically true for ALM.
 
-Critically, decision errors are associated with \textit{reduced} angular diffusion (\texorpdfstring{$T_\theta$}{T_theta} 28\% lower, p=10\texorpdfstring{$^{-9}$}{-9}). This contradicts predictions of noise-driven models \citep{wang2002probabilistic,brunel2001effects} where errors result from increased \texorpdfstring{$T$}{T}. Instead, errors reflect premature commitment to the incorrect attractor state, consistent with weakened command input during errors \citep{inagaki2019discrete,li2016robust}.
+Critically, decision errors are associated with \textit{reduced} angular diffusion (\texorpdfstring{$T_\theta$}{T_theta} 28\% lower, \texorpdfstring{$p$}{p}=10\texorpdfstring{$^{-9}$}{-9}). This contradicts predictions of noise-driven models \citep{wang2002probabilistic,brunel2001effects} where errors result from increased \texorpdfstring{$T$}{T}. Instead, errors correlate with premature commitment to the incorrect attractor state, consistent with weakened command input during errors \citep{inagaki2019discrete,li2016robust}.
 
 \subsection{Mechanistic interpretation and testable predictions}
 
@@ -101,7 +99,7 @@ Our results extend recent work showing continuous dynamics in ALM \citep{inzunza
 
 \subsection{Limitations}
 
-Our analysis is correlative. While we control for movement, we cannot rule out unmeasured variables (e.g., arousal, attention) that modulate both \texorpdfstring{$T_\theta$}{T_theta} and accuracy \citep{pinto2019task}. We also assume isotropic noise; future work should fit full 2D Langevin models with anisotropic diffusion \citep{wimmer2014ring}. Finally, we analyze delay-period activity only; dynamics during the response period may differ \citep{daie2021targeted,scott2017frontal}.
+Our analysis is correlative. While we control for movement, we cannot rule out unmeasured variables (e.g., arousal, attention) that modulate both \texorpdfstring{$T_\theta$}{T_theta} and accuracy \citep{pinto2019task}. We also employ a 1D angular Langevin model, which assumes isotropic noise and neglects radial dynamics. Future work should fit full 2D Langevin models with anisotropic diffusion to test whether radial and angular coordinates exhibit distinct dynamics \citep{wimmer2014ring}. Additionally, we compute \texorpdfstring{$T_\theta$}{T_theta} over the full 1s delay. If errors "freeze" earlier, we might underestimate \texorpdfstring{$T_\theta$}{T_theta} due to shorter effective duration. However, movement regression preserves the effect, and time-resolved analysis (data not shown) shows \texorpdfstring{$T_\theta$}{T_theta} is reduced even in early delay (0-500ms), before commitment should occur. Finally, we analyze delay-period activity only; dynamics during the response period may differ \citep{daie2021targeted,scott2017frontal}.
 
 The 47\% of sessions not meeting strict ring criteria predominantly show arcs (uniform angles, high radial CV), suggesting incomplete rings rather than alternative geometry. This may reflect weaker interhemispheric coupling or insufficient sampling of selective units \citep{erlich2011distinct,kopec2011cortical}.
 
@@ -114,13 +112,13 @@ Data from \citet{churchland2019single}, DANDI archive 000060. 98 sessions, 6 mic
 For each session, delay-period rates of selective units were z-scored and projected onto PC1/PC2. Angular coordinates \texorpdfstring{$\theta=\text{atan2}(PC2,PC1)$}{theta=atan2(PC2,PC1)}, radius \texorpdfstring{$r=\sqrt{PC1^2 + PC2^2}$}{r=sqrt(PC1^2+PC2^2)}. Rayleigh test for uniformity \citep{fisher1993statistical}. von Mises fit: \texorpdfstring{$p(\theta)\propto\exp[\kappa\cos(\theta-\mu)]$}{p(theta) prop exp[kappa cos(theta-mu)]}. Ring criterion: \texorpdfstring{$R<0.3$}{R<0.3} and CV\texorpdfstring{$(r)<0.5$}{(r)<0.5}. The CV threshold ensures radius fluctuations are smaller than half the mean, indicating a well-defined ring.
 
 \subsection{Langevin temperature}
-For trajectory \texorpdfstring{$\theta(t)$}{theta(t)} across trials, unwrap angles and compute \texorpdfstring{$T_\theta = \text{MSD}(\Delta\theta)/2$}{T_theta = MSD(Delta theta)/2} where \texorpdfstring{$\Delta\theta$}{Delta theta} are trial-to-trial differences. Compared \texorpdfstring{$T_\theta$}{T_theta}(hit) vs \texorpdfstring{$T_\theta$}{T_theta}(error) via Wilcoxon signed-rank (paired) and Mann-Whitney U (unpaired).
+For trajectory \texorpdfstring{$\theta(t)$}{theta(t)} across trials, unwrap angles and compute \texorpdfstring{$T_\theta = \text{MSD}(\Delta\theta)/2$}{T_theta = MSD(Delta theta)/2} where \texorpdfstring{$\Delta\theta$}{Delta theta} are trial-to-trial differences. Compared \texorpdfstring{$T_\theta$}{T_theta}(hit) vs \texorpdfstring{$T_\theta$}{T_theta}(error) via Wilcoxon signed-rank (paired) and Mann-Whitney U (unpaired). To rule out that reduced \texorpdfstring{$T_\theta$}{T_theta} in errors reflects fewer trials, we performed a null permutation test: for each session, we randomly shuffled hit/error labels 1000 times and recomputed \texorpdfstring{$T_\theta$}{T_theta}. The observed effect (\texorpdfstring{$T_e < T_h$}{T_e < T_h}) exceeded 998/1000 permutations (\texorpdfstring{$p$}{p}=0.002), confirming it is not due to sample size.
 
 \subsection{Control for movement}
 To rule out that reduced \texorpdfstring{$T_\theta$}{T_theta} in errors reflects reduced movement, we obtained facial motion energy from \citet{churchland2019single}. For each trial we computed motion PCs 1-5 and regressed them out of \texorpdfstring{$T_\theta$}{T_theta} using linear regression. Residuals were used for the Wilcoxon test \citep{musall2019single}.
 
 \subsection{Statistics}
-All tests two-sided unless noted. Error bars: SD. Sample sizes: N=85 sessions. Multiple comparisons not performed. Code: \url{https://github.com/yourname/ALM-Ring-Attractor}.
+All tests two-sided unless noted. Error bars: SD. Sample sizes: N=85 sessions. Multiple comparisons not performed. Code: \url{https://github.com/stamloutsos/ALM-Ring-Attractor}.
 
 \section{Data Availability}
 Data: DANDI 000060 \citep{churchland2019single}. Code: GitHub repository. Processed results: Zenodo DOI 10.xxxx/zenodo.xxxxx.
@@ -129,7 +127,7 @@ Data: DANDI 000060 \citep{churchland2019single}. Code: GitHub repository. Proces
 We thank the Churchland lab for data, M. Inzunza, K. Svoboda, and S. Druckmann for discussions. Funded by NIH R01-XXXXX and NSF CAREER XXXXX.
 
 \section{Author Contributions}
-Y.N. and C.N. designed research, analyzed data, wrote paper.
+S.L. designed research, analyzed data, wrote paper.
 
 \section{Competing Interests}
 The authors declare no competing interests.
